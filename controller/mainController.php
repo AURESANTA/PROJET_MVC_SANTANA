@@ -38,9 +38,9 @@ function addPost($title, $author, $content, $imagePath, $idUser ,$idCategory) {
     }
 }
 
-function updatePost($idPost, $title, $content, $imagePath, $idCategory) {
+function updatePost($title, $content, $imagePath, $idCategory, $idPost) {
     
-    $updatePost = updatePost($idPost, $title, $content, $imagePath, $idCategory);
+    $updatePost = editPost($title, $content, $imagePath, $idCategory, $idPost);
 
     if ($newPost === false) {
         die('Action impossible, désolé.');   

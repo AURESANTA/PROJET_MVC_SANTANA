@@ -29,7 +29,7 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'updatePost') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $imgUrl = getImgUrl(); 
-            updatePost($_GET['id'], $_POST['title'], $_POST['content'],  $imgUrl, $_POST['category']);
+            updatePost($_POST['title'], $_POST['content'],  $imgUrl, $_POST['category'], $_GET['id'], );
         }
     }
 

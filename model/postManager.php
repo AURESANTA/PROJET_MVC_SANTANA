@@ -9,7 +9,8 @@ function getPosts() {
                         INNER JOIN categories 
                         ON categories.id = posts.idCategory
                         INNER JOIN users
-                        ON users.id = posts.idUser;');
+                        ON users.id = posts.idUser
+                        ORDER BY posts.id DESC LIMIT 10');
 
     return $posts;
 }
@@ -37,10 +38,10 @@ function newPost($title, $author, $content, $imagePath, $idUser, $idCategory) {
     return $newPost;
 }
 
-function editPost($idPost, $title, $content, $imagePath, $idCategory) {
+function editPost($title, $content, $imagePath, $idCategory, $idPost) {
     $db = dbConnect();
     $req = $db->prepare('UPDATE posts SET title = ?, content = ?, imagePath = ?, idCategory = ? WHERE id = ?');
-    $updatePost = $req->execute(array($idPost, $title, $content, $imagePath, $idCategory ));
+    $updatePost = $req->execute(array($title, $content, $imagePath, $idCategory, $idPost ));
     return $updatePost;
 }
 
